@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBO 문제맞추기</title>
+    <style>
+        @font-face {
+            font-family: 'kbo bold';
+            src: url(./fonts/KBO\ Dia\ Gothic_bold.ttf);
+        }
+
+        @font-face {
+            font-family: 'kbo light' ;
+            src: url(./fonts/KBO\ Dia\ Gothic_light.ttf);
+        }
+
+        @font-face {
+            font-family: 'kbo medium';
+            src: url(./fonts/KBO\ Dia\ Gothic_medium.ttf);
+        }
+        body {
+            font-family: 'kbo bold';
+            text-align: center;
+            margin: 20px;
+            display: flex;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media screen and (min-width:375px) and (max-width:400px) {
+        .quiz-container {
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        }
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #002063;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #002063;
+            color: white;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #050f24;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question" id="question"> is the capital of France?</div>
+        <ul class="options" id="options">
+            <li><label><input type="radio" name="answer" value="Paris"> Paris</label></li>
+            <li><label><input type="radio" name="answer" value="London"> London</label></li>
+            <li><label><input type="radio" name="answer" value="Berlin"> Berlin</label></li>
+            <li><label><input type="radio" name="answer" value="Madrid"> Madrid</label></li>
+        </ul>
+        <button class="submit-btn" onclick="checkAnswer()">결과보기</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "KBO리그 첫 창단팀은 어디일까요?",
+                options: ["OB베어스(현 두산베어스)", "해태타이거즈(현 기아타이거즈)", "롯데자이언츠", "삼성라이온즈", "삼미슈퍼스타즈(현 SSG랜더스)"],
+                answer: "OB베어스(현 두산베어스)"
+            },
+            {
+                question: "투수로서 22연승을 달성한 선수는 누구일까요?",
+                options: ["박철순", "최동원", "선동열", "류현진"],
+                answer: "박철순"
+            },
+            {
+                question: "한국시리즈에서 투수로서 4승을 올린 선수는 누구일까요?",
+                options: ["류현진", "선동열", "최동원", "박찬호"],
+                answer: "최동원"
+            },
+            {
+                question: "KBO리그 한경기 최다 17탈삼진을 기록한 선수는 누구일까요?",
+                options: ["김선우", "니퍼트", "류현진", "임찬규"],
+                answer: "류현진"
+            },
+            {
+                question: "프로야구 출범년도는 몇년도일까요?",
+                options: ["1960년", "1968년", "1975년", "1982년"],
+                answer: "1982년"
+            },
+            {
+                question: "KBO리그 한국시리즈 첫 우승팀은?",
+                options: ["롯데자이언츠", "엘지트윈스", "OB베어스(현 두산베어스)", "해태타이거즈(현 기아타이거즈)"],
+                answer: "OB베어스(현 두산베어스)"
+            },
+            {
+                question: "KBO리그 한국시리즈 최다 우승팀은?",
+                options: ["두산베어스", "SSG랜더스", "한화이글스", "엘지트윈스" , "삼성라이온즈" , "기아타이거즈" , "KT위즈" , "키움히어로즈" ,"롯데자이언츠", "NC다이노스"],
+                answer: "기아타이거즈"
+            },
+            {
+                question: "2024년 KBO리그는 역대 최다관중수를 기록했습니다 몇만관중을 달성했을까요?",
+                options: ["900만", "850만", "1000만", "700만", "600만"],
+                answer: "1000만"
+            },
+            {
+                question: "KBO리그 역대 개인통산 최다홈런 기록 보유선수는?",
+                options: ["이승엽", "이대호", "최정", "최형우", "박병호"],
+                answer: "최정"
+            },
+            {
+                question: "KBO리그 역대 개인통산 최다안타 기록 보유선수는?",
+                options: ["박용택", "김태균", "손아섭", "김현수", "양준혁"],
+                answer: "손아섭"
+            },
+            {
+                question: "KBO리그 역대 개인통산 최다탈삼진 기록 보유선수는?",
+                options: ["김광현", "니퍼트", "양현종", "류현진", "선동열"],
+                answer: "양현종"
+            },
+            {
+                question: "KBO리그 역대 개인통산 최다세이브 기록 보유선수는?",
+                options: ["임창용", "오승환", "이용찬", "김택연", "정해영"],
+                answer: "오승환"
+            },
+            {
+                question: "2022년 KBO리그 최초 와이어 투 와이어 우승팀은?",
+                options: ["기아타이거즈", "삼성라이온즈", "엘지트윈스", "두산베어스", "KT위즈", "SSG랜더스", "롯데자이언츠", "한화이글스", "NC다이노스", "키움히어로즈"],
+                answer: "SSG랜더스"
+            },
+            {
+                question: "2024년 KBO리그는 판정시비를 줄이기 위해 자동볼판정 시스템인 이것을 도입하였는데 이것은 무엇일까요?",
+                options: ["OSB", "USB", "ABS", "AAC"],
+                answer: "ABS"
+            }
+
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion() {
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+
+            const currentQuestion = questions[currentQuestionIndex];
+
+            questionElement.textContent = currentQuestion.question;
+
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.innerHTML = `<label><input type='radio' name='answer' value='${option}'> ${option}</label>`;
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function checkAnswer() {
+            const options = document.getElementsByName('answer');
+            let selectedAnswer = '';
+
+            for (const option of options) {
+                if (option.checked) {
+                    selectedAnswer = option.value;
+                    break;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                resultDiv.textContent = '정답!';
+                resultDiv.style.color = 'green';
+
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    setTimeout(() => {
+                        resultDiv.textContent = '';
+                        loadQuestion();
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        resultDiv.textContent = '퀴즈가 끝났습니다';
+                    }, 1000);
+                }
+            } else if (selectedAnswer) {
+                resultDiv.textContent = '아까워요! 다시 생각해보세요';
+                resultDiv.style.color = 'red';
+            } else {
+                resultDiv.textContent = '정답을 선택해주세요';
+                resultDiv.style.color = 'orange';
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
