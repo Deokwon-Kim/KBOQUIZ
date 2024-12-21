@@ -25,17 +25,22 @@
             margin: 20px;
             display: flex;
         }
+        h1 {
+            font-size: 30px;
+        }
         .quiz-container {
             max-width: 600px;
-            margin: 0 10px;
+            margin: 10 50px;
             border: 1px solid #ccc;
             padding: 20px;
             border-radius: 10px;
             background-color: #f9f9f9;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        @media screen and (min-width:375px) and (max-width:400px) {
+        @media screen and (min-width:375px) and (max-width:430px) {
         .quiz-container {
+            position: absolute;
+            top: 150px;
             margin: auto;
             border: 1px solid #ccc;
             padding: 20px;
@@ -77,6 +82,7 @@
     </style>
 </head>
 <body>
+    <h1>재미로 맞춰보는 크보퀴즈~</h1>
     <div class="quiz-container">
         <div class="question" id="question"> is the capital of France?</div>
         <ul class="options" id="options">
