@@ -1,16 +1,19 @@
-@media screen and (min-width:280px) and (max-width:430px) {
-    .quiz-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 200px;
-        max-width: 1000px;
-        max-height: 850px;
-        border: 1px solid #ccc;
-        padding: 20px;
-        border-radius: 10px;
+    /*모바일 기기 사이즈 갤럭시 z폴드도 반영*/
+    @media screen and (min-width:280px) and (max-width:430px) {
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px;
+            max-width: 1000px;
+            max-height: 850px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
     }
-    }
+
+    /*테블릿 기기 사이즈*/
     @media screen and (min-width:712px) and (max-width:1024px){
         .quiz-container {
             display: flex;
@@ -56,6 +59,7 @@
         }
     }
 
+    /*노트북,데스크탑 기기 사이즈*/
     @media screen and (min-width:1024px) and (max-width:2160px) {
         .quiz-container {
             display: flex;
