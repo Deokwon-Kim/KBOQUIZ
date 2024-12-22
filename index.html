@@ -4,88 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KBO 문제맞추기</title>
-    <style>
-        @font-face {
-            font-family: 'kbo bold';
-            src: url(./fonts/KBO\ Dia\ Gothic_bold.ttf);
-        }
-
-        @font-face {
-            font-family: 'kbo light' ;
-            src: url(./fonts/KBO\ Dia\ Gothic_light.ttf);
-        }
-
-        @font-face {
-            font-family: 'kbo medium';
-            src: url(./fonts/KBO\ Dia\ Gothic_medium.ttf);
-        }
-        body {
-            font-family: 'kbo bold';
-            text-align: center;
-            margin: 20px;
-            display: flex;
-        }
-        h1 {
-            font-size: 30px;
-        }
-        .quiz-container {
-            max-width: 600px;
-            margin: 10 50px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        @media screen and (min-width:280px) and (max-width:430px) {
-        .quiz-container {
-            position: absolute;
-            top: 150px;
-            margin: auto;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        }
-        .question {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #002063;
-        }
-        .options {
-            list-style-type: none;
-            padding: 0;
-        }
-        .options li {
-            margin: 10px 0;
-        }
-        .submit-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            background-color: #002063;
-            color: white;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #050f24;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .explanation {
-            margin-top: 20px;
-            font-size: 1em;
-            font-style: italic;
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
     <h1>재미로 맞춰보는 크보퀴즈~</h1>
@@ -102,7 +22,7 @@
         <div class="explanation" id="explanation" style="display: none;"></div>
         <button class="submit-btn" id="next-btn" style="display: none;" onclick="loadNextQuestion()">다음문제</button>
         <div id="score-container">
-            <!-- 점수는 JavaScript로 표-->
+            <!-- 점수는 JavaScript로 표시-->
         </div>
     </div>
 
@@ -223,6 +143,7 @@
             nextButton.style.display = 'none';
         }
 
+        //정답 체크
         function checkAnswer() {
             const options = document.getElementsByName('answer');
             let selectedAnswer = '';
@@ -253,9 +174,11 @@
                 resultDiv.style.color = 'orange';
             }
 
+            //정답이 아니여도 다음문제로 넘어갈수있도록 함 
             document.getElementById("next-btn").style.display = 'block';
         }
 
+        //다음문제로 넘어가기
         function loadNextQuestion() {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
