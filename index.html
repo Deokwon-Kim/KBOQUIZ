@@ -13,7 +13,7 @@
     <div class="quiz-container">
         <!--progress bar-->
         <div class="progress mb-4">
-            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 100%; background-color:#002063;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 100%; background-color:#002063;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
         <div class="question" id="question"> is the capital of France?</div>
@@ -26,14 +26,14 @@
         <button class="submit-btn" onclick="checkAnswer()">결과보기</button>
         <div class="result" id="result"></div>
         <div class="explanation" id="explanation" style="display: none;"></div>
+        <div class="explanation" id="wrexplanation" style="display: none;"></div>
         <button class="submit-btn" id="next-btn" style="display: none;" onclick="loadNextQuestion()">다음문제</button>
-        <div id="score-container">
-            <!-- 점수는 JavaScript로 표시-->
-        </div>
+        <div id="score-container"></div>
+        <!-- 점수는 JavaScript로 표시-->
+         <button class="submit-btn" id="reset-btn" style="display: none;" onclick="resetQuiz()">처음으로</button>
+        
     </div>
 
-   
-    <script src="./progress.js"></script>
     <script src="./script.js" ></script>
 </body>
 </html>

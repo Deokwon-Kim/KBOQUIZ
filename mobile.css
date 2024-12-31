@@ -1,109 +1,115 @@
-    /*모바일 기기 사이즈 갤럭시 z폴드도 반영*/
-    @media screen and (min-width:280px) and (max-width:430px) {
-        .quiz-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 200px;
-            max-height: 850px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .progress {
-            width: 300px;
-        }
+/*모바일 기기 사이즈 갤럭시 z폴드도 반영*/
+@media screen and (min-width:280px) and (max-width:430px) {
+    h1 {
+        display: block;
+        position: relative;
+        top:0px;
+    }
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 350px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 10px;
     }
 
-    /*테블릿 기기 사이즈*/
-    @media screen and (min-width:712px) and (max-width:1024px){
-        .quiz-container {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            align-items: center;
-            min-width: 200px;
-            max-width: 1000px;
-            max-height: 850px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-        }
+    .progress {
+        width: 300px;
+    }
+}
 
-        .question {
-            font-size: 30px;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            font-size: 30px;
-        }
-
-        .submit-btn {
-            width: 250px;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            background-color: #002063;
-            color: white;
-            cursor: pointer;
-        }
-
-        .explanation {
-            margin-top: 20px;
-            font-size: 20px;
-            font-style: italic;
-            color: #555;
-        }
+/*테블릿 기기 사이즈*/
+@media screen and (min-width:712px) and (max-width:1024px) {
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+        min-width: 200px;
+        max-width: 1000px;
+        max-height: 850px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
     }
 
-    /*노트북,데스크탑 기기 사이즈*/
-    @media screen and (min-width:1024px) and (max-width:2160px) {
-        .quiz-container {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            align-items: center;
-            min-width: 200px;
-            max-width: 1000px;
-            max-height: 850px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .question {
-            font-size: 30px;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            font-size: 30px;
-        }
-
-        .submit-btn {
-            width: 250px;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            background-color: #002063;
-            color: white;
-            cursor: pointer;
-        }
-
-        .explanation {
-            margin-top: 20px;
-            font-size: 20px;
-            font-style: italic;
-            color: #555;
-        }
+    .question {
+        font-size: 30px;
     }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        font-size: 30px;
+    }
+
+    .submit-btn {
+        width: 250px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #002063;
+        color: white;
+        cursor: pointer;
+    }
+
+    .explanation {
+        margin-top: 20px;
+        font-size: 20px;
+        font-style: italic;
+        color: #555;
+    }
+}
+
+/*노트북,데스크탑 기기 사이즈*/
+@media screen and (min-width:1024px) and (max-width:2160px) {
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+        min-width: 200px;
+        max-width: 1000px;
+        max-height: 1050px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .question {
+        font-size: 30px;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        font-size: 30px;
+    }
+
+    .submit-btn {
+        width: 250px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #002063;
+        color: white;
+        cursor: pointer;
+    }
+
+    .explanation {
+        margin-top: 20px;
+        font-size: 20px;
+        font-style: italic;
+        color: #555;
+    }
+}
