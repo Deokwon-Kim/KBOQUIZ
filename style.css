@@ -1,25 +1,28 @@
 @font-face {
     font-family: 'kbo bold';
-    src: url(./fonts/KBO\ Dia\ Gothic_bold.ttf);
+    src: url(./fonts/KBO_Bold.ttf);
 }
 
 @font-face {
     font-family: 'kbo light' ;
-    src: url(./fonts/KBO\ Dia\ Gothic_light.ttf);
+    src: url(./fonts/KBO_light.ttf);
 }
 
 @font-face {
     font-family: 'kbo medium';
-    src: url(./fonts/KBO\ Dia\ Gothic_medium.ttf);
+    src: url(./fonts/KBO_medium.ttf);
 }
 body {
-    font-family: 'kbo bold';
     text-align: center;
-    margin: 20px;        }
+    margin: 20px;       
+}
+
 h1 {
+    font-family: 'kbo bold';
     font-size: 30px;
     margin: 0 auto;
 }
+
 .quiz-container {
     position: relative;
     top: 50px;
@@ -31,6 +34,7 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     background-color: #f9f9f9;
+    font-family: 'kbo bold';
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .question {
@@ -38,13 +42,29 @@ h1 {
     margin-bottom: 20px;
     color: #002063;
 }
+
+.progress {
+    background-color: #002063;
+    color: #222;
+    width: 500px;
+}
+
+.progress-bar {
+    color: #222;
+    font-size: 12px;
+    font-weight: 100;
+    font-family: 'kbo light';
+}
+
 .options {
     list-style-type: none;
     padding: 0;
 }
+
 .options li {
     margin: 10px 0;
 }
+
 .submit-btn {
     margin-top: 20px;
     padding: 10px 20px;
@@ -55,14 +75,17 @@ h1 {
     color: white;
     cursor: pointer;
 }
+
 .submit-btn:hover {
     background-color: #050f24;
 }
+
 .result {
     margin-top: 20px;
     font-size: 1.2em;
     font-weight: bold;
 }
+
 .explanation {
     margin-top: 20px;
     /* font-size: 1em; */
