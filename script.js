@@ -61,14 +61,14 @@ const questions = [
         options: ["이승엽", "이대호", "최정", "최형우", "박병호"],
         answer: "최정",
         explanation: "2024년 04월24일 부산 롯데전에서 통산 468호 홈런을 기록하며 종전기록인 467홈런의 이승엽을 넘어 개인통산 최다홈런 기록 보유선수가 되었다.",
-        wrongExplanation:"정답: 최정 \n 2024년 04월24일 부산 롯데전에서 통산 468홈런을 기록하였다.(이전기록: 이승엽(467홈런)"
+        wrongExplanation:"정답: 최정 \n 2024년 04월24일 부산 롯데전에서 통산 468홈런을 기록하였다.(이전기록: 이승엽(467홈런))"
     },
     {
         question: "KBO리그 역대 개인통산 최다안타 기록 보유선수는?",
         options: ["박용택", "김태균", "손아섭", "김현수", "양준혁"],
         answer: "손아섭",
         explanation: "2024년 06월20일 잠실 두산전에서 안타를 기록하며 통산 2505안타를 기록하며 개인통산 최다안타 기록 보유선수가 되었다\n(이전기록:2504안타 박용택)",
-        wrongExplanation:"정답: 손아섭 \n 2024년 06월20알 잠실 두산전에서 통산 2505안타를 기록하였다.(이전기록:박용택(2504안타)"
+        wrongExplanation:"정답: 손아섭 \n 2024년 06월20알 잠실 두산전에서 통산 2505안타를 기록하였다.(이전기록:박용택(2504안타))"
     },
     {
         question: "KBO리그 역대 개인통산 최다탈삼진 기록 보유선수는?",
@@ -82,7 +82,7 @@ const questions = [
         options: ["임창용", "오승환", "이용찬", "김택연", "정해영"],
         answer: "오승환",
         explanation: "2024년 04월24일 고척 키움전에서 세이브를 기록하며 개인통산 최다 세이브인 408세이브를 기록하였다.",
-        wrongExplanation:"정답: 오승환 \n 2024년 04월24일 고척 키움전에서 개인통산 408세이브를 기록하였다.ㅁ"
+        wrongExplanation:"정답: 오승환 \n 2024년 04월24일 고척 키움전에서 개인통산 408세이브를 기록하였다."
     },
     {
         question: "2022년 KBO리그 최초 와이어 투 와이어 우승팀은?",
@@ -104,17 +104,6 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
-
-    //localStorage에 저장된 값이 있으면 불러오기
-    if (localStorage.getItem('currentQuestionIndex')) {
-        currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex'), 10);
-    }
-    if (localStorage.getItem('score')) {
-        score = parseFloat(localStorage.getItem('score'));
-    }
-    if (localStorage.getItem('correctAnswers')) {
-        correctAnswers = parseInt(localStorage.getItem('correctAnswers'), 10);
-    }
 
 // 프로그레스바 초기화
 function initializeProgressBar() {
@@ -189,15 +178,6 @@ function checkAnswer() {
         resultDiv.style.color = 'green';
         explanationDiv.textContent = questions[currentQuestionIndex].explanation;
         explanationDiv.style.display = 'block';
-
-        // localStorage에 현재 진행중인 문제번호와 점수 저장
-        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-        localStorage.setItem('score', score);
-
-        currentQuestionIndex++;
-        loadQuestion();
-
-
         setTimeout(loadNextQuestion, 1000);// 정답일 경우 1초 후 다음문제로 넘어감
         // nextButton.style.display = 'inline-block'; // 정답일 경우 다음문제로 넘어갈수 있는 버튼 현재는 자동으로 넘어가게 설정 함 필요시 버튼사용
     } else if (selectedAnswer) {
@@ -205,14 +185,6 @@ function checkAnswer() {
         resultDiv.style.color = 'red';
         wrongExplanationDiv.textContent = questions[currentQuestionIndex].wrongExplanation;
         wrongExplanationDiv.style.display = 'block'
-
-        // localStorage에 현재 진행중인 문제번호 저장
-        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-        localStorage.setItem('score', score);
-
-        currentQuestionIndex++;
-        loadQuestion();
-
         setTimeout(loadNextQuestion, 3000);// 오답일 경우 1초 후 다음문제로 넘어감
     } else {
         resultDiv.textContent = '정답을 선택해주세요!';
@@ -229,9 +201,6 @@ function checkAnswer() {
 //다음문제로 넘어가기
 function loadNextQuestion() {
     currentQuestionIndex++;
-
-    // localStorage에 현재 진행중인 문제번호 저장
-    localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
 
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
