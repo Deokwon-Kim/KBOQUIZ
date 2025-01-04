@@ -61,14 +61,14 @@ const questions = [
         options: ["이승엽", "이대호", "최정", "최형우", "박병호"],
         answer: "최정",
         explanation: "2024년 04월24일 부산 롯데전에서 통산 468호 홈런을 기록하며 종전기록인 467홈런의 이승엽을 넘어 개인통산 최다홈런 기록 보유선수가 되었다.",
-        wrongExplanation:"정답: 최정 \n 2024년 04월24일 부산 롯데전에서 통산 468홈런을 기록하였다.(이전기록: 이승엽(467홈런)"
+        wrongExplanation:"정답: 최정 \n 2024년 04월24일 부산 롯데전에서 통산 468홈런을 기록하였다.(이전기록: 이승엽(467홈런))"
     },
     {
         question: "KBO리그 역대 개인통산 최다안타 기록 보유선수는?",
         options: ["박용택", "김태균", "손아섭", "김현수", "양준혁"],
         answer: "손아섭",
         explanation: "2024년 06월20일 잠실 두산전에서 안타를 기록하며 통산 2505안타를 기록하며 개인통산 최다안타 기록 보유선수가 되었다\n(이전기록:2504안타 박용택)",
-        wrongExplanation:"정답: 손아섭 \n 2024년 06월20알 잠실 두산전에서 통산 2505안타를 기록하였다.(이전기록:박용택(2504안타)"
+        wrongExplanation:"정답: 손아섭 \n 2024년 06월20알 잠실 두산전에서 통산 2505안타를 기록하였다.(이전기록:박용택(2504안타))"
     },
     {
         question: "KBO리그 역대 개인통산 최다탈삼진 기록 보유선수는?",
@@ -82,7 +82,7 @@ const questions = [
         options: ["임창용", "오승환", "이용찬", "김택연", "정해영"],
         answer: "오승환",
         explanation: "2024년 04월24일 고척 키움전에서 세이브를 기록하며 개인통산 최다 세이브인 408세이브를 기록하였다.",
-        wrongExplanation:"정답: 오승환 \n 2024년 04월24일 고척 키움전에서 개인통산 408세이브를 기록하였다.ㅁ"
+        wrongExplanation:"정답: 오승환 \n 2024년 04월24일 고척 키움전에서 개인통산 408세이브를 기록하였다."
     },
     {
         question: "2022년 KBO리그 최초 와이어 투 와이어 우승팀은?",
@@ -185,6 +185,11 @@ function checkAnswer() {
         resultDiv.style.color = 'red';
         wrongExplanationDiv.textContent = questions[currentQuestionIndex].wrongExplanation;
         wrongExplanationDiv.style.display = 'block'
+
+        // localStorage에 현재 진행중인 문제번호 저장
+        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
+        localStorage.setItem('score', score);
+
         currentQuestionIndex++;
         loadQuestion();
 
