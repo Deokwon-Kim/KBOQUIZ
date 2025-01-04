@@ -68,20 +68,12 @@ h1 {
 }
 
 .options li {
-    height: 70px;
     margin: 10px 0;
-    border: 1px solid grey;
     font-size: 25px;
     font-family: 'kbo bold';
     font-weight: 100;
-    line-height: 65px;
-    border-radius: 12px;
 }
 
-.options li:hover {
-    border: 1px solid #002063;;
-    cursor: pointer;
-}
 
 .submit-btn {
     margin-top: 20px;
