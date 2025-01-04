@@ -105,17 +105,6 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 
-    //localStorage에 저장된 값이 있으면 불러오기
-    if (localStorage.getItem('currentQuestionIndex')) {
-        currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex'), 10);
-    }
-    if (localStorage.getItem('score')) {
-        score = parseFloat(localStorage.getItem('score'));
-    }
-    if (localStorage.getItem('correctAnswers')) {
-        correctAnswers = parseInt(localStorage.getItem('correctAnswers'), 10);
-    }
-
 // 프로그레스바 초기화
 function initializeProgressBar() {
     const progressBar = document.getElementById("progress-bar");
@@ -189,15 +178,6 @@ function checkAnswer() {
         resultDiv.style.color = 'green';
         explanationDiv.textContent = questions[currentQuestionIndex].explanation;
         explanationDiv.style.display = 'block';
-
-        // localStorage에 현재 진행중인 문제번호와 점수 저장
-        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-        localStorage.setItem('score', score);
-
-        currentQuestionIndex++;
-        loadQuestion();
-
-
         setTimeout(loadNextQuestion, 1000);// 정답일 경우 1초 후 다음문제로 넘어감
         // nextButton.style.display = 'inline-block'; // 정답일 경우 다음문제로 넘어갈수 있는 버튼 현재는 자동으로 넘어가게 설정 함 필요시 버튼사용
     } else if (selectedAnswer) {
@@ -205,11 +185,6 @@ function checkAnswer() {
         resultDiv.style.color = 'red';
         wrongExplanationDiv.textContent = questions[currentQuestionIndex].wrongExplanation;
         wrongExplanationDiv.style.display = 'block'
-
-        // localStorage에 현재 진행중인 문제번호 저장
-        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-        localStorage.setItem('score', score);
-
         currentQuestionIndex++;
         loadQuestion();
 
@@ -229,9 +204,6 @@ function checkAnswer() {
 //다음문제로 넘어가기
 function loadNextQuestion() {
     currentQuestionIndex++;
-
-    // localStorage에 현재 진행중인 문제번호 저장
-    localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
 
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
