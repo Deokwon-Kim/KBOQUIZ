@@ -256,8 +256,8 @@ function shareOnKakao() {
             objectType: 'text',
             text: `KBO퀴즈 점수: ${score.toFixed(0)}점! 도전해보세요!`,
             link: {
-                mobileWebUrl: "http://127.0.0.1:5500/index.html",
-                webUrl: "http://127.0.0.1:5500/index.html/",
+                mobileWebUrl: "https://deokwon-kim.github.io/KBOQUIZ/",
+                webUrl: "https://deokwon-kim.github.io/KBOQUIZ/",
             },
         });
     } else {
