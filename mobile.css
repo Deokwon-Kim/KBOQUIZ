@@ -1,14 +1,11 @@
 /*모바일 기기 사이즈 갤럭시 z폴드도 반영*/
 @media screen and (min-width:280px) and (max-width:430px) {
-body {
-    overflow: scroll;
-}
-
     h1 {
         display: block;
         position: relative;
         top:0px;
     }
+
     .quiz-container {
         display: flex;
         flex-direction: column;
@@ -27,6 +24,20 @@ body {
 
     .progress {
         width: 300px;
+    }
+
+    .m-share-buttons h1{
+        font-size: 20px;
+        color: #002063;
+    }
+
+    .m-sns-btn {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        margin-top: 20px;
+        justify-content: center;
+        cursor: pointer;
     }
 }
 
@@ -119,5 +130,13 @@ body {
         font-size: 20px;
         font-style: italic;
         color: #555;
+    }
+
+    .m-sns-btn {
+        display: none;
+    }
+
+    .m-share-buttons h1{
+        display: none;
     }
 }

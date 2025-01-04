@@ -103,3 +103,76 @@ h1 {
     color: #555;
     white-space: pre-line;
 }
+
+.score-container {
+    font-size: 10px;
+}
+
+.share-buttons {
+    position: absolute;
+    top: -20px;
+    right: 500px;
+}
+
+.share-buttons h1 {
+    position: relative;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'kbo bold';
+    color: #002063;
+}
+
+.sns-btn {
+    position: relative;
+    top: 0px;
+    display: flex;
+    gap: 30px;
+}
+
+.kakao-btn img{
+    position: relative;
+    top: -5px;
+    width: 35px;
+    cursor: pointer;
+    border-radius: 160px;
+}
+
+.kakao-btn p {
+    position: relative;
+    top: -5px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.facebook-btn img{
+    position: relative;
+    top: -5px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.facebook-btn p {
+    position: relative;
+    top: -5px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.twitter-btn img{
+    width: 25px;
+    cursor: pointer;
+}
+
+.twitter-btn p {
+    position: relative;
+    top: 5px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.threads-btn img{
+    position: relative;
+    top: -5px;
+    width: 40px;
+    cursor: pointer;
+}
